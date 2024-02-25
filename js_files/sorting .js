@@ -5,7 +5,19 @@ const speedSlider = document.getElementById("speed-slider");
 let sortingSpeed = 50 
 
 speedSlider.addEventListener("input",function(){
-    sortingSpeed = parseInt(speedSlider.value);
+    sortingSpeed = 100-parseInt(speedSlider.value);
+})
+
+document.addEventListener("DOMContentLoaded",function(){
+    const algorithm =document.getElementById("sorting-algorithm");
+    const startButton = document.getElementById("start-button");
+
+    startButton.addEventListener("click",function(){
+        const selectedAlgorithm = algorithm.value;
+        if(selectedAlgorithm ==="bubble"){
+            bubbleSort();
+        }
+    })
 })
 
 function generateBars(){
