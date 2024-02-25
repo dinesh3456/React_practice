@@ -1,0 +1,74 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: black; 
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    margin-bottom: 20px;
+}
+
+.navbar h1 {
+    color: white; 
+    text-align: center; 
+    flex: 1; 
+    margin-left:100px;
+}
+
+.navbar label {
+    color: white;
+    margin-left:33px;
+
+}
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+}
+
+.left-controller {
+    margin-right: 15px;
+    padding:10px;
+    margin-left:20px;
+    background-color: #333;
+}
+
+.controls button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #333; 
+    color: white; 
+    cursor: pointer;
+    margin-right: 15px;
+    margin-left: 15px;
+}
+
+.selects {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 15px;
+}
+
+.bar {
+    flex: 0 0 auto; 
+    width: 10px; 
+    background-color: yellow; 
+    margin-right: 5px;
+}
+
+#visualization-container {
+    display: flex; 
+    flex-direction: row; 
+    align-items: flex-end; 
+    height: 350px; 
+    padding: 140px; 
+    background-color: #black; 
+    align-items: flex-end;
+    margin-left: 90px;
+}
+
