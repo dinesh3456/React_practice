@@ -47,4 +47,3 @@
   const bubbleSortButton = document.getElementById("bubbleSort-button");
   bubbleSortButton.addEventListener("click", bubbleSort);
 
-s

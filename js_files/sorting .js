@@ -4,9 +4,9 @@ const generateButton = document.getElementById("generate-button");
 const visualizationContainer = document.getElementById("visualization-container");
 const speedSlider = document.getElementById("speed-slider");
 
-let sortingSpeed = 50 
+let sortingSpeed = 100
 speedSlider.addEventListener("input",function(){
-    sortingSpeed = 100-parseInt(speedSlider.value);
+    sortingSpeed = 900-parseInt(speedSlider.value);
 })
 
 document.addEventListener("DOMContentLoaded",function(){
