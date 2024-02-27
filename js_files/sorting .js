@@ -13,10 +13,26 @@ document.addEventListener("DOMContentLoaded",function(){
     const algorithm =document.getElementById("sorting-algorithm");
     const startButton = document.getElementById("start-button");
 
-    startButton.addEventListener("click",function(){
+    startButton.addEventListener("click", function() {
         const selectedAlgorithm = algorithm.value;
-        if(selectedAlgorithm ==="bubble"){
-            bubbleSort();
+        switch(selectedAlgorithm) {
+            case "bubble":
+                bubbleSort();
+                break;
+            case "selection":
+                selectionSort();
+                break;
+            case "insertion":
+                insertionSort();
+                break;
+            case "quick":
+                quickSort();
+                break;
+            case "merge":
+                mergeSort();
+                break;
+            default:
+                console.log("Invalid sorting algorithm selected.");
         }
     })
 })
