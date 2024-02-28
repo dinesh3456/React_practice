@@ -10,32 +10,43 @@ function swap(el1, el2) {
 }
 
 async function selectionSort() {
-  const special = document.getElementsByClassName("bar");
-  const n = special.length;
+    const special = document.getElementsByClassName("bar");
+    const n = special.length;
+    sortingInProgress = true;
 
-  for (let i = 0; i < n - 1; i++) {
-    let minIndex = i;
+    for (let i = 0; i < n - 1; i++) {
+        let minIndex = i;
 
-    for (let j = i + 1; j < n; j++) {
-      special[j].style.background = "red";
-      await new Promise((resolve) => setTimeout(resolve, sortingSpeed));
+        if (!sortingInProgress) {
+            return;
+        }
 
-      const height1 = parseInt(special[j].style.height);
-      const height2 = parseInt(special[minIndex].style.height);
+        for (let j = i + 1; j < n; j++) {
+            special[j].style.background = "red";
+            await new Promise((resolve) => setTimeout(resolve, sortingSpeed));
 
-      if (height1 < height2) {
-        minIndex = j;
-      }
+            if (!sortingInProgress) { 
+                return; 
+            }
 
-      special[j].style.background = "yellow";
+            const height1 = parseInt(special[j].style.height);
+            const height2 = parseInt(special[minIndex].style.height);
+
+            if (height1 < height2) {
+                minIndex = j;
+            }
+
+            special[j].style.background = "yellow";
+        }
+
+        swap(special[i], special[minIndex]);
+        special[i].style.background = "green";
     }
 
-    swap(special[i], special[minIndex]);
-    special[i].style.background = "green";
-  }
-
-  special[n - 1].style.background = "green";
+    special[n - 1].style.background = "green";
+    sortingInProgress = false; 
 }
+
 
 const selectionSortButton = document.getElementById("selectionSort-button");
 selectionSortButton.addEventListener("click", selectionSort);

@@ -1,5 +1,3 @@
-
-
 const generateButton = document.getElementById("generate-button");
 const visualizationContainer = document.getElementById("visualization-container");
 const speedSlider = document.getElementById("speed-slider");
@@ -7,34 +5,6 @@ const speedSlider = document.getElementById("speed-slider");
 let sortingSpeed = 100
 speedSlider.addEventListener("input",function(){
     sortingSpeed = 900-parseInt(speedSlider.value);
-})
-
-document.addEventListener("DOMContentLoaded",function(){
-    const algorithm =document.getElementById("sorting-algorithm");
-    const startButton = document.getElementById("start-button");
-
-    startButton.addEventListener("click", function() {
-        const selectedAlgorithm = algorithm.value;
-        switch(selectedAlgorithm) {
-            case "bubble":
-                bubbleSort();
-                break;
-            case "selection":
-                selectionSort();
-                break;
-            case "insertion":
-                insertionSort();
-                break;
-            case "quick":
-                quickSort();
-                break;
-            case "merge":
-                mergeSort();
-                break;
-            default:
-                console.log("Invalid sorting algorithm selected.");
-        }
-    })
 })
 
 function generateBars(){
@@ -57,6 +27,47 @@ generateButton.addEventListener("click",function(){
         sortingInProgress = false;
     }
     generateBars();
+});
+
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    const algorithm = document.getElementById("sorting-algorithm");
+    const startButton = document.getElementById("start-button");
+
+    startButton.addEventListener("click", function() {
+        if (sortingInProgress) {
+            alert("Sorting is already in progress. Please wait.");
+            return;
+        }
+
+        const selectedAlgorithm = algorithm.value;
+        sortingInProgress = true;
+        switch(selectedAlgorithm) {
+            case "bubble":
+                bubbleSort();
+                break;
+            case "selection":
+                selectionSort();
+                break;
+            case "insertion":
+                insertionSort();
+                break;
+            case "quick":
+                quickSort();
+                break;
+            case "merge":
+                mergeSort();
+                break;
+            default:
+                console.log("Invalid sorting algorithm selected.");
+        }
+    });
+
+    algorithm.addEventListener("change", function() {
+        sortingInProgress = false;
+        generateBars();
+    });
 });
 
 
